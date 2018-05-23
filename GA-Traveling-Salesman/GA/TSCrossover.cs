@@ -38,7 +38,7 @@ namespace GATravelingSalesman.GA
 			                                .ToArray();
 
 			foreach (var gene in selectedGenes)
-				indexes.Add((gene.Value as ClonableV2).index);
+				indexes.Add((gene.Value as ClonableIndex).index);
 
 			var offspringGenes = new Gene[genesLen];
 			var j = 0;
@@ -67,8 +67,8 @@ namespace GATravelingSalesman.GA
 
 		private bool GenesMatch(Gene gene1, Gene gene2)
 		{
-			return (gene1.Value as ClonableV2).index ==
-                   (gene2.Value as ClonableV2).index;
+			return (gene1.Value as ClonableIndex).index ==
+                   (gene2.Value as ClonableIndex).index;
 		}
 
 		private bool ContainsGene(IList<Gene> genes, Gene target)

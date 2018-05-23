@@ -4,6 +4,18 @@ import sys
 import json
 import numpy as np
 
+"""
+What it expects:
+	argv[1] = max X
+	argv[2] = max Y
+	argv[3] = [option] == single/gif
+	argv[4+] = jsons
+
+	The json is encoded in the following way:
+		{ points: [{"x": <nb>, "y": <nb>, "i": <nb>}, ...] }
+		where "i" is the point's index.
+"""
+
 fig = plt.figure()
 ax = fig.add_subplot(111)
 ax = plt.axes(xlim=(0, float(sys.argv[1])), ylim=(0, float(sys.argv[2])))
@@ -56,7 +68,7 @@ def show_gif():
 		frames=frames,
 		interval=20,
 		blit=True)
-	# anim.save('animation.gif', writer='imagemagick', fps=60)
+	# anim.save('random.gif', writer='imagemagick', fps=60)
 	plt.show()
 
 if sys.argv[3] == "gif":

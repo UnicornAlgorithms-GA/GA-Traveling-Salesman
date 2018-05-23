@@ -20,12 +20,18 @@ namespace GATravelingSalesman.Utils.TSGraph
 			{
 				points = path.Select(p => new
 				{
-					x = locations[p].X,
-					y = locations[p].Y,
+					x = locations[p].X.ToString("0.0"),
+					y = locations[p].Y.ToString("0.0"),
                     i = p
 				})
 			};
-			return JsonConvert.SerializeObject(obj).Replace("\"", "\\\"");
+
+			var result = JsonConvert.SerializeObject(obj);
+			result = result.Replace("\"", "\\\"")
+			               .Replace(" ", "")
+			               .Replace("\n", "");
+
+			return result;
 		}
 
 		public static void DrawGifResult(

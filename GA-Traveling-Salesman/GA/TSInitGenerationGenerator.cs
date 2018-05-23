@@ -21,7 +21,7 @@ namespace GATravelingSalesman.GA
 		protected override IGenome NewRandomGenome()
 		{
 			var genes = Locations.Shuffle()
-			                     .Select(l => new Gene(new ClonableV2(Locations.IndexOf(l))))
+			                     .Select(l => new Gene(new ClonableIndex(Locations.IndexOf(l))))
 								 .ToArray();
 			
 			var genome = new V2Genome
