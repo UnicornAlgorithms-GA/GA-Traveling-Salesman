@@ -11,5 +11,9 @@
   <ItemGroup>
     <Folder Include="GA\" />
     <Folder Include="Utils\" />
+    <Folder Include="Utils\TSGraph\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="11.0.2" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using GATravelingSalesman.Utils;
 using GeneticLib.Genome;
@@ -11,7 +12,9 @@ namespace GATravelingSalesman.GA
     /// Swap 2 genes within the same genome.
     /// </summary>
 	public class TSSwapMutation : MutationBase
-    {      
+    {
+		public static HashSet<int> indexes = new HashSet<int>();
+
         /// <summary>
 		/// Guarantees that 2 different elements are chosen.
 		/// A little optimization is involved here.
@@ -36,6 +39,9 @@ namespace GATravelingSalesman.GA
 				elements.Remove(index1);
 				index2 = elements.RandomChoice();
 			}
+
+			indexes.Add(index1);
+			indexes.Add(index2);
 
 			// At this point, both indexes are chosen.
 

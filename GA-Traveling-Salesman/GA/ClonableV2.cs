@@ -5,30 +5,21 @@ namespace GATravelingSalesman.GA
 {
 	public class ClonableV2 : ICloneable
 	{
-		public float x;
-		public float y;
+		public int index;     
 
-		public ClonableV2(float x, float y)
+		public ClonableV2(int index)
 		{
-			this.x = x;
-			this.y = y;
-		}
-
-		public ClonableV2(Vector2 vector)
-		{
-			this.x = vector.X;
-			this.y = vector.Y;
+			this.index = index;
 		}
 
 		public ClonableV2(ClonableV2 other)
 		{
-			this.x = other.x;
-			this.y = other.y;
+			this.index = other.index;
 		}
 
 		public object Clone()
 		{
-			return new ClonableV2(x, y);
+			return new ClonableV2(index);
 		}
 	}
 }

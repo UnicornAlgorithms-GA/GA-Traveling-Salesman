@@ -11,17 +11,17 @@ namespace GATravelingSalesman.GA
 {
 	public class TSInitGenerationGenerator : InitialGenerationCreatorBase
     {
-		private IList<Vector2> Locations;
+		private IList<Vector2> Locations { get; set; }
 
 		public TSInitGenerationGenerator(IList<Vector2> locations)
         {
-			Locations = locations.ToArray();
+			Locations = locations;
         }
 
 		protected override IGenome NewRandomGenome()
 		{
-			Locations.Shuffle();
-			var genes = Locations.Select(l => new Gene(new ClonableV2(l)))
+			var genes = Locations.Shuffle()
+			                     .Select(l => new Gene(new ClonableV2(Locations.IndexOf(l))))
 								 .ToArray();
 			
 			var genome = new V2Genome
