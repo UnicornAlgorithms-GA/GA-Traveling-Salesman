@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using GeneticLib.Genome;
+using GeneticLib.Genome.GeneticGene;
 using GeneticLib.GenomeFactory.GenomeProducer.Breeding.Crossover;
 using GeneticLib.Randomness;
 
@@ -61,7 +62,7 @@ namespace GATravelingSalesman.GA
 
 			return new IGenome[]
 			{
-                new V2Genome { Genes = offspringGenes }
+				new GenomeBase { Genes = offspringGenes }
 			};
 		}
 

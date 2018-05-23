@@ -6,6 +6,7 @@ using System.Numerics;
 using GATravelingSalesman.Utils;
 using GeneticLib.Generations.InitialGeneration;
 using GeneticLib.Genome;
+using GeneticLib.Genome.GeneticGene;
 
 namespace GATravelingSalesman.GA
 {
@@ -24,7 +25,7 @@ namespace GATravelingSalesman.GA
 			                     .Select(l => new Gene(new ClonableIndex(Locations.IndexOf(l))))
 								 .ToArray();
 			
-			var genome = new V2Genome
+			var genome = new GenomeBase
 			{
 				Genes = genes
 		    };

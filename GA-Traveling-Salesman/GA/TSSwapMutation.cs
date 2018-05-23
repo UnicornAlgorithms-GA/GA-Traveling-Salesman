@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using GATravelingSalesman.Utils;
 using GeneticLib.Genome;
+using GeneticLib.Genome.GeneticGene;
 using GeneticLib.GenomeFactory.Mutation;
 using GeneticLib.Randomness;
 
