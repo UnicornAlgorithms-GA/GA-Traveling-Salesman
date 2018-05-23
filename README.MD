@@ -20,4 +20,5 @@ This problem is usually a bit harder to optimize.
 I added the 1-circle and 2-circle locations because it's known which way is the optimal one.
 
 **Note**: The distance graph doesn't track duplicant points.
+
 **Note**: This project uses C# **and** Python3.
