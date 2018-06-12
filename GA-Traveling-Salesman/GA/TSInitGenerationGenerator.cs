@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using GATravelingSalesman.Utils;
 using GeneticLib.Generations.InitialGeneration;
 using GeneticLib.Genome;
-using GeneticLib.Genome.GeneticGene;
+using GeneticLib.Genome.Genes;
 
 namespace GATravelingSalesman.GA
 {

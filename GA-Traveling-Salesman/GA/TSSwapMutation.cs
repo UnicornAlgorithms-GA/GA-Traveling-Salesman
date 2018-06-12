@@ -1,17 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GATravelingSalesman.Utils;
 using GeneticLib.Genome;
-using GeneticLib.Genome.GeneticGene;
+using GeneticLib.Genome.Genes;
 using GeneticLib.GenomeFactory.Mutation;
 using GeneticLib.Randomness;
 
 namespace GATravelingSalesman.GA
 {
 	/// <summary>
-    /// Swap 2 genes within the same genome.
-    /// </summary>
+	/// Swap 2 genes within the same genome.
+	/// </summary>
 	public class TSSwapMutation : MutationBase
     {
 		public static HashSet<int> indexes = new HashSet<int>();

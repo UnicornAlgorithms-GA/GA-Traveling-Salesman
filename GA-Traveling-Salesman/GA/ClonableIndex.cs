@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Numerics;
+using GeneticLib.Utils;
 
 namespace GATravelingSalesman.GA
 {
-	public class ClonableIndex : ICloneable
+	public class ClonableIndex : IDeepClonable<ClonableIndex>
 	{
 		public int index;     
 
@@ -17,7 +18,7 @@ namespace GATravelingSalesman.GA
 			this.index = other.index;
 		}
 
-		public object Clone()
+		public ClonableIndex Clone()
 		{
 			return new ClonableIndex(index);
 		}

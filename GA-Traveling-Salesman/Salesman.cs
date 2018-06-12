@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using GATravelingSalesman;
@@ -13,8 +11,8 @@ using GeneticLib.Genome;
 using GeneticLib.GenomeFactory;
 using GeneticLib.GenomeFactory.GenomeProducer;
 using GeneticLib.GenomeFactory.GenomeProducer.Breeding;
-using GeneticLib.GenomeFactory.GenomeProducer.Breeding.Selection;
 using GeneticLib.GenomeFactory.GenomeProducer.Reinsertion;
+using GeneticLib.GenomeFactory.GenomeProducer.Selection;
 using GeneticLib.GenomeFactory.Mutation;
 using GeneticLib.Randomness;
 using GeneticLib.Utils.Graph;
@@ -37,7 +35,7 @@ namespace GA_Traveling_Salesman
 		float geneMutationChance = 0.4f;
 
 		float crossoverPart = 0.80f;
-		float reinsertionPart = 0.2f;
+		float reinsertionPart = 0.20f;
 
 		GeneticManagerClassic geneticManager;
 		public static int maxIterations = 3000;
@@ -89,8 +87,8 @@ namespace GA_Traveling_Salesman
 			var locGenerator = new LocationGenerator(numberOfLocations, maxPos);
 
             //var locations = locGenerator.CircularLocations();
-			//var locations = locGenerator.TwoCirclesLocations(1f / 15);
-			var locations = locGenerator.RandomLocations();
+			var locations = locGenerator.TwoCirclesLocations(1f / 15);
+			//var locations = locGenerator.RandomLocations();
 
 			return locations;
 		}
@@ -112,7 +110,10 @@ namespace GA_Traveling_Salesman
 				InitMutations()
 			);
 
-			var reinsertion = new EliteReinsertion(reinsertionPart, 0);
+			var reinsertion = new ReinsertionFromSelection(
+				reinsertionPart,
+				minProduction: 0,
+				selection: new EliteSelection());
 			var producers = new IGenomeProducer[]
 			{
 				reinsertion,

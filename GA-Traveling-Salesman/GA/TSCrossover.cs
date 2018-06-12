@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using GeneticLib.Genome;
-using GeneticLib.Genome.GeneticGene;
+using GeneticLib.Genome.Genes;
 using GeneticLib.GenomeFactory.GenomeProducer.Breeding.Crossover;
 using GeneticLib.Randomness;
 
@@ -11,7 +10,7 @@ namespace GATravelingSalesman.GA
 	/// <summary>
 	/// The crossover is from here:
 	/// http://www.theprojectspot.com/tutorial-post/applying-a-genetic-algorithm-to-the-travelling-salesman-problem/5
-    /// </summary>
+	/// </summary>
 	public class TSCrossover : CrossoverBase
 	{
 		public static HashSet<int> indexes = new HashSet<int>();
