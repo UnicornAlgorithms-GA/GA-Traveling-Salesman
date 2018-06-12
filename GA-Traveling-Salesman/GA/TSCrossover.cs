@@ -74,7 +74,7 @@ namespace GATravelingSalesman.GA
 		private bool ContainsGene(IList<Gene> genes, Gene target)
 		{
 			var element = genes.FirstOrDefault(g => GenesMatch(g, target));
-			return element.Value != null;
+			return element != null && element.Value != null;
 		}
 	}
 }

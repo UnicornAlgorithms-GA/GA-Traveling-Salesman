@@ -21,6 +21,9 @@ namespace GA_Traveling_Salesman
 {
 	class Salesman
 	{
+        private static readonly string pyFitnessGraphPath =
+            "../MachineLearningPyGraphUtils/DrawGraph.py";
+
 		// The slowmotion is necessary, because at the begninning, there are 
 		// more changes.
 		public static bool drawGif = true;
@@ -38,11 +41,13 @@ namespace GA_Traveling_Salesman
 		float reinsertionPart = 0.20f;
 
 		GeneticManagerClassic geneticManager;
-		public static int maxIterations = 3000;
+		public static int maxIterations = 1000;
 
 		static void Main(string[] args)
 		{
+			PyDrawGraph.pyGraphDrawerFilePath = pyFitnessGraphPath;         
 			GARandomManager.Random = new RandomClassic((int)DateTime.Now.Ticks);
+
 			var salesman = new Salesman(GetLocations());
 
 			var gif = new GifDrawer(
@@ -86,8 +91,8 @@ namespace GA_Traveling_Salesman
 		{
 			var locGenerator = new LocationGenerator(numberOfLocations, maxPos);
 
-            //var locations = locGenerator.CircularLocations();
-			var locations = locGenerator.TwoCirclesLocations(1f / 15);
+            var locations = locGenerator.CircularLocations();
+			//var locations = locGenerator.TwoCirclesLocations(1f / 15);
 			//var locations = locGenerator.RandomLocations();
 
 			return locations;
@@ -100,7 +105,7 @@ namespace GA_Traveling_Salesman
 
 			var initialGenerationGenerator = new TSInitGenerationGenerator(Locations);
 
-			var selection = new EliteSelection();
+			var selection = new RouletteWheelSelectionWithRepetion();
 			var crossover = new TSCrossover();
 			var breeding = new BreedingClassic(
 				crossoverPart,
